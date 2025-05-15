@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [regression]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="tests(failed)">
+    <classes>
+      <class name="org.qdPM.LoginPageTest">
+        <methods>
+          <include name="loginAdmin"/>
+        </methods>
+      </class> <!-- org.qdPM.LoginPageTest -->
+    </classes>
+  </test> <!-- tests(failed) -->
+</suite> <!-- Failed suite [regression] -->

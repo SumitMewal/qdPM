@@ -1,21 +1,23 @@
 package org.qdPM;
+import org.qdPM.driver.DriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.qdPM.base.AbstractClass;
 import org.testng.annotations.Test;
 
-public class LoginPageTest {
-	public WebDriver driver;
+public class LoginPageTest extends AbstractClass  {
+	//public WebDriver driver;
 	@Test 
 	public void loginAdmin ()
 	{
-		driver = new ChromeDriver(); // we are giving the life to the object
-		driver.manage().window().maximize();
-		driver.get("http://localhost:8091/");
-		driver.findElement(By.name("login[email]")).sendKeys("sumitsmewal@gmail.com");
-		driver.findElement(By.name("login[password]")).sendKeys("sumita");
-		driver.findElement(By.xpath("//button[contains(text(),'Login')]")).click();
-		driver.quit();  
+		//driver = new ChromeDriver(); // we are giving the life to the object
+		
+		DriverManager.getDriver().manage().window().maximize();
+		//driver.get("http://localhost:8091/");
+		DriverManager.getDriver().findElement(By.name("login[email]")).sendKeys("sumitclient@mailinator.com");
+		DriverManager.getDriver().findElement(By.name("login[password]")).sendKeys("sumitc");
+		DriverManager.getDriver().findElement(By.xpath("//button[contains(text(),'Login')]")).click();
+		DriverManager.getDriver().findElement(By.xpath("//span[@class='username']")).getText();
+		String userName = DriverManager.getDriver().findElement(By.xpath("//span[@class='username']")).getText();
+		System.out.println(userName);
 	}
 }

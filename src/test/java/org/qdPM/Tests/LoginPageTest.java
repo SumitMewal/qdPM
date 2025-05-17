@@ -1,4 +1,4 @@
-package org.qdPM;
+package org.qdPM.Tests;
 import org.qdPM.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.qdPM.base.AbstractClass;
@@ -9,10 +9,7 @@ public class LoginPageTest extends AbstractClass  {
 	@Test 
 	public void loginAdmin ()
 	{
-		//driver = new ChromeDriver(); // we are giving the life to the object
-		
 		DriverManager.getDriver().manage().window().maximize();
-		//driver.get("http://localhost:8091/");
 		DriverManager.getDriver().findElement(By.name("login[email]")).sendKeys("sumitclient@mailinator.com");
 		DriverManager.getDriver().findElement(By.name("login[password]")).sendKeys("sumitc");
 		DriverManager.getDriver().findElement(By.xpath("//button[contains(text(),'Login')]")).click();

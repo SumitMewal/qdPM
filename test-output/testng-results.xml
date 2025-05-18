@@ -2,50 +2,50 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-17T20:02:19 IST" name="qdPMSuite" finished-at="2025-05-17T20:02:32 IST" duration-ms="12682">
+  <suite started-at="2025-05-18T19:58:26 IST" name="qdPMSuite" finished-at="2025-05-18T19:58:35 IST" duration-ms="9181">
     <groups>
     </groups>
-    <test started-at="2025-05-17T20:02:19 IST" name="Test" finished-at="2025-05-17T20:02:32 IST" duration-ms="12682">
-      <class name="org.qdPM.Tests.LoginPageTest">
-        <test-method is-config="true" signature="initDriver()[pri:0, instance:org.qdPM.Tests.LoginPageTest@ae13544]" started-at="2025-05-17T20:02:27 IST" name="initDriver" finished-at="2025-05-17T20:02:30 IST" duration-ms="2800" status="PASS">
+    <test started-at="2025-05-18T19:58:26 IST" name="qdPMTest" finished-at="2025-05-18T19:58:35 IST" duration-ms="9181">
+      <class name="org.qdPM.tests.LoginPageTest">
+        <test-method is-config="true" signature="initDriver()[pri:0, instance:org.qdPM.tests.LoginPageTest@ae13544]" started-at="2025-05-18T19:58:31 IST" name="initDriver" finished-at="2025-05-18T19:58:34 IST" duration-ms="2987" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initDriver -->
-        <test-method signature="loginAdmin()[pri:0, instance:org.qdPM.Tests.LoginPageTest@ae13544]" started-at="2025-05-17T20:02:30 IST" name="loginAdmin" finished-at="2025-05-17T20:02:32 IST" duration-ms="1907" status="PASS">
+        <test-method signature="getUserName()[pri:0, instance:org.qdPM.tests.LoginPageTest@ae13544]" started-at="2025-05-18T19:58:34 IST" name="getUserName" finished-at="2025-05-18T19:58:35 IST" duration-ms="346" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginAdmin -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.qdPM.Tests.LoginPageTest@ae13544]" started-at="2025-05-17T20:02:32 IST" name="tearDown" finished-at="2025-05-17T20:02:32 IST" duration-ms="448" status="PASS">
+        </test-method> <!-- getUserName -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.qdPM.tests.LoginPageTest@ae13544]" started-at="2025-05-18T19:58:35 IST" name="tearDown" finished-at="2025-05-18T19:58:35 IST" duration-ms="398" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- org.qdPM.Tests.LoginPageTest -->
-      <class name="org.qdPM.Tests.HomePageTest">
-        <test-method is-config="true" signature="initDriver()[pri:0, instance:org.qdPM.Tests.HomePageTest@3857f613]" started-at="2025-05-17T20:02:19 IST" name="initDriver" finished-at="2025-05-17T20:02:24 IST" duration-ms="4488" status="PASS">
+      </class> <!-- org.qdPM.tests.LoginPageTest -->
+      <class name="org.qdPM.tests.HomePageTest">
+        <test-method is-config="true" signature="initDriver()[pri:0, instance:org.qdPM.tests.HomePageTest@3857f613]" started-at="2025-05-18T19:58:26 IST" name="initDriver" finished-at="2025-05-18T19:58:30 IST" duration-ms="4253" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initDriver -->
-        <test-method is-config="true" signature="initDriver()[pri:0, instance:org.qdPM.Tests.HomePageTest@3857f613]" started-at="2025-05-17T20:02:19 IST" name="initDriver" finished-at="2025-05-17T20:02:24 IST" duration-ms="4508" status="PASS">
+        <test-method is-config="true" signature="initDriver()[pri:0, instance:org.qdPM.tests.HomePageTest@3857f613]" started-at="2025-05-18T19:58:26 IST" name="initDriver" finished-at="2025-05-18T19:58:31 IST" duration-ms="4780" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initDriver -->
-        <test-method signature="loginUser2()[pri:0, instance:org.qdPM.Tests.HomePageTest@3857f613]" started-at="2025-05-17T20:02:24 IST" name="loginUser2" finished-at="2025-05-17T20:02:26 IST" duration-ms="2378" status="PASS">
+        <test-method signature="loginUser2()[pri:0, instance:org.qdPM.tests.HomePageTest@3857f613]" started-at="2025-05-18T19:58:30 IST" name="loginUser2" finished-at="2025-05-18T19:58:31 IST" duration-ms="533" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginUser2 -->
-        <test-method signature="loginUser1()[pri:0, instance:org.qdPM.Tests.HomePageTest@3857f613]" started-at="2025-05-17T20:02:24 IST" name="loginUser1" finished-at="2025-05-17T20:02:27 IST" duration-ms="2894" status="PASS">
+        <test-method signature="loginUser1()[pri:0, instance:org.qdPM.tests.HomePageTest@3857f613]" started-at="2025-05-18T19:58:31 IST" name="loginUser1" finished-at="2025-05-18T19:58:31 IST" duration-ms="447" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginUser1 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.qdPM.Tests.HomePageTest@3857f613]" started-at="2025-05-17T20:02:26 IST" name="tearDown" finished-at="2025-05-17T20:02:27 IST" duration-ms="561" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.qdPM.tests.HomePageTest@3857f613]" started-at="2025-05-18T19:58:31 IST" name="tearDown" finished-at="2025-05-18T19:58:31 IST" duration-ms="574" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.qdPM.Tests.HomePageTest@3857f613]" started-at="2025-05-17T20:02:27 IST" name="tearDown" finished-at="2025-05-17T20:02:27 IST" duration-ms="496" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.qdPM.tests.HomePageTest@3857f613]" started-at="2025-05-18T19:58:31 IST" name="tearDown" finished-at="2025-05-18T19:58:32 IST" duration-ms="401" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- org.qdPM.Tests.HomePageTest -->
-    </test> <!-- Test -->
+      </class> <!-- org.qdPM.tests.HomePageTest -->
+    </test> <!-- qdPMTest -->
   </suite> <!-- qdPMSuite -->
 </testng-results>

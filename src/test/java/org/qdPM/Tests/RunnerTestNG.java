@@ -1,4 +1,4 @@
-package org.qdPM.Tests;
+package org.qdPM.tests;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;

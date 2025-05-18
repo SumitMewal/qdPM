@@ -1,20 +1,36 @@
-package org.qdPM.Tests;
-import org.qdPM.driver.DriverManager;
-import org.openqa.selenium.By;
+package org.qdPM.tests;
 import org.qdPM.base.AbstractClass;
+import org.qdPM.pageobject.LoginPage;
 import org.testng.annotations.Test;
 
-public class LoginPageTest extends AbstractClass  {
-	//public WebDriver driver;
-	@Test 
-	public void loginAdmin ()
+public final class LoginPageTest extends AbstractClass  {
+
+	private LoginPageTest()
 	{
-		DriverManager.getDriver().manage().window().maximize();
+
+	}
+	@Test 
+	public void getUserName ()
+	{
+		LoginPage lP = new LoginPage();
+		lP.enterUserEmail("sumitsmewal@gmail.com").enterUserPassword("sumita").clickLogin();
+		
+	}
+		
+		
+
+
+
+
+
+
+		/*
 		DriverManager.getDriver().findElement(By.name("login[email]")).sendKeys("sumitclient@mailinator.com");
 		DriverManager.getDriver().findElement(By.name("login[password]")).sendKeys("sumitc");
 		DriverManager.getDriver().findElement(By.xpath("//button[contains(text(),'Login')]")).click();
 		DriverManager.getDriver().findElement(By.xpath("//span[@class='username']")).getText();
 		String userName = DriverManager.getDriver().findElement(By.xpath("//span[@class='username']")).getText();
 		System.out.println(userName);
+		 */
 	}
-}
+

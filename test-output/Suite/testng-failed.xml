@@ -3,12 +3,21 @@
 <suite thread-count="2" parallel="methods" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="2" parallel="methods" name="Test(failed)">
     <classes>
-      <class name="org.qdPM.HomePageTest">
+      <class name="org.qdPM.tests.HomePageTest">
         <methods>
+          <include name="tearDown"/>
+          <include name="initDriver"/>
           <include name="loginUser1"/>
           <include name="loginUser2"/>
         </methods>
-      </class> <!-- org.qdPM.HomePageTest -->
+      </class> <!-- org.qdPM.tests.HomePageTest -->
+      <class name="org.qdPM.tests.LoginPageTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="initDriver"/>
+          <include name="getUserName"/>
+        </methods>
+      </class> <!-- org.qdPM.tests.LoginPageTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [qdPMSuite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" parallel="methods" name="Test(failed)">
+  <test thread-count="5" parallel="methods" name="qdPMTest(failed)">
     <classes>
-      <class name="org.qdPM.Tests.HomePageTest">
+      <class name="org.qdPM.tests.HomePageTest">
         <methods>
-          <include name="loginUser2"/>
+          <include name="initDriver"/>
+          <include name="tearDown"/>
           <include name="loginUser1"/>
-          <include name="initDriver"/>
-          <include name="tearDown"/>
+          <include name="loginUser2"/>
         </methods>
-      </class> <!-- org.qdPM.Tests.HomePageTest -->
-      <class name="org.qdPM.Tests.LoginPageTest">
+      </class> <!-- org.qdPM.tests.HomePageTest -->
+      <class name="org.qdPM.tests.LoginPageTest">
         <methods>
           <include name="tearDown"/>
           <include name="initDriver"/>
-          <include name="loginAdmin"/>
+          <include name="getUserName"/>
         </methods>
-      </class> <!-- org.qdPM.Tests.LoginPageTest -->
+      </class> <!-- org.qdPM.tests.LoginPageTest -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- qdPMTest(failed) -->
 </suite> <!-- Failed suite [qdPMSuite] -->

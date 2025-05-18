@@ -2,7 +2,7 @@ package org.qdPM.driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class DriverManager {
+public final class DriverManager {
 
 	// Private constructor to prevent the creation of new instances of Driver
 	private DriverManager()

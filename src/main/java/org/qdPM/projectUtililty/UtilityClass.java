@@ -1,4 +1,4 @@
-package org.qdPM.projectUtililty;
+package org.qdPM.projectutililty;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,14 +7,16 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.Properties;
 
-public class UtilityClass {
+public final class UtilityClass {
 
 	private UtilityClass()
 	{
 
 	}
 
-	// Method to get property value on basis of key 
+	// Method to get property value on basis of key using HashTable
+	// Hashtable is fast and thread safe
+
 	/*
 	 * public static String getValue(String key) throws IOException {
 	 * FileInputStream fileInputStream = new FileInputStream(
@@ -25,8 +27,7 @@ public class UtilityClass {
 	 * println("Check key !! value or key is blank or incorrect....key = "
 	 * +key+"value of key = "+ value); } return value; }
 	 */
-	
-	
+
 	private static Properties prop = new Properties(); 
 	private static final HashMap<String,String> MAP = new HashMap<String, String>();
 	// static block is used to load properties file 
@@ -49,11 +50,9 @@ public class UtilityClass {
 		{
 			MAP.put(String.valueOf(key), String.valueOf(prop.get(key)));
 		}
-	
 	}
 
 	// getting property values using Hashmap
-	
 	public static String getValue(String key) throws IOException
 	{
 		if(Objects.isNull(key) || Objects.isNull(MAP.get(key)))
@@ -61,7 +60,7 @@ public class UtilityClass {
 			System.out.println("Check key !! value or key is blank or incorrect....key =" +key+" value of key = "+MAP.get(key));
 		}
 		return MAP.get(key);
-		
+
 	}
 
 

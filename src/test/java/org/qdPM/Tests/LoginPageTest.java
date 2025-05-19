@@ -1,6 +1,7 @@
 package org.qdPM.tests;
 import org.qdPM.base.AbstractClass;
 import org.qdPM.pageobject.LoginPage;
+import org.qdPM.pageobject.UserPage;
 import org.testng.annotations.Test;
 
 public final class LoginPageTest extends AbstractClass  {
@@ -9,28 +10,21 @@ public final class LoginPageTest extends AbstractClass  {
 	{
 
 	}
+	UserPage uP;
+	LoginPage lP = new LoginPage();
 	@Test 
-	public void getUserName ()
+	public void validateUserName ()
 	{
-		LoginPage lP = new LoginPage();
 		lP.enterUserEmail("sumitsmewal@gmail.com").enterUserPassword("sumita").clickLogin();
+	}
+	public void createClientUser()
+	{
+		uP = lP.enterUserEmail("sumitsmewal@gmail.com").enterUserPassword("sumita").clickLogin();
+		clickOnSubmenu("Users","Add User");
 		
 	}
-		
-		
 
 
 
-
-
-
-		/*
-		DriverManager.getDriver().findElement(By.name("login[email]")).sendKeys("sumitclient@mailinator.com");
-		DriverManager.getDriver().findElement(By.name("login[password]")).sendKeys("sumitc");
-		DriverManager.getDriver().findElement(By.xpath("//button[contains(text(),'Login')]")).click();
-		DriverManager.getDriver().findElement(By.xpath("//span[@class='username']")).getText();
-		String userName = DriverManager.getDriver().findElement(By.xpath("//span[@class='username']")).getText();
-		System.out.println(userName);
-		 */
-	}
+}
 

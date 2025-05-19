@@ -11,10 +11,6 @@ public final class LoginPage {
 	private final By btnLogin = By.xpath("//button[contains(text(),'Login')]");
 	private final By linkPassForgotten = By.linkText("Password forgotten?");
 	
-	// Objects of the pages where the user will land after clicking on the buttons.
-	HomePage hP = new HomePage();
-	ForgotPasswordPage fPP = new ForgotPasswordPage();
-	
 	// Methods for implementation
 	public LoginPage enterUserEmail(String email)
 	{
@@ -27,15 +23,15 @@ public final class LoginPage {
 		DriverManager.getDriver().findElement(txtPass).sendKeys(password);
 		return this;
 	}
-	public HomePage clickLogin()
+	public UserPage clickLogin()
 	{
 		DriverManager.getDriver().findElement(btnLogin).click();
-		return hP;
+		return new UserPage();
 	}
 	public ForgotPasswordPage clickForgotPassword()
 	{
 		DriverManager.getDriver().findElement(linkPassForgotten).click();
-		return fPP;
+		return new ForgotPasswordPage();
 	}
 
 }

@@ -1,5 +1,11 @@
 package org.qdPM.pageobject;
 
-public class ForgotPasswordPage {
+public final class ForgotPasswordPage {
 
+	
+	
+	
+	
+	
+	
 }

@@ -1,5 +1,5 @@
 package org.qdPM.pageobject;
 
-public class HomePage {
+public class UserPage {
 
 }

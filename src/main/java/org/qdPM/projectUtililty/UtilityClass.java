@@ -3,16 +3,13 @@ package org.qdPM.projectutililty;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
+import org.qdPM.driver.DriverManager;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
-
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public final class UtilityClass {
 
@@ -58,36 +55,25 @@ public final class UtilityClass {
 		return MAP.get(key);
 	}
 
-
-
-	// getting the data from excel sheet
-	public static HashMap<Object, Object> getCellValue(String SheetName) throws IOException
+	// Select dropdown handling
+	public static void selectDropDown(By by, String value)
 	{
-		HashMap<Object, Object> excelMap = new HashMap<Object, Object>();
-		FileInputStream fileIO = new FileInputStream("C:\\Users\\sumit\\Education\\Web_Automation\\org.qdPM\\src\\main\\resources\\testData\\qdPM_dataSheet.xlsx");
-		XSSFWorkbook workBook = new XSSFWorkbook(fileIO);
-		int noOfSheets =  workBook.getNumberOfSheets();
-		for (int i = 0; i<noOfSheets;i++)
+		WebElement element = DriverManager.getDriver().findElement(by);
+		Select select = new Select(element);
+		String defaultSelection = select.getFirstSelectedOption().toString();
+		if(defaultSelection.equalsIgnoreCase(value))
 		{
-			XSSFSheet activeSheet =  workBook.getSheetAt(i);
-			if(activeSheet.getSheetName().equalsIgnoreCase(SheetName))
-			{
-				int rowCount = activeSheet.getPhysicalNumberOfRows();
-				XSSFRow topRow= activeSheet.getRow(0);
-				int cellCount = topRow.getPhysicalNumberOfCells();
-				for (int row = 1;row<rowCount-1;row++)
-				{
-					XSSFRow activeRow = activeSheet.getRow(row);
-					for (int cell = 0;cell < cellCount;cell++)
-					{
-						XSSFCell activeCell = activeRow.getCell(cell);
-						excelMap.put(activeRow, activeCell);
-					}
-				}
-			}
+			select.selectByValue(value);
 		}
+		else {
+			select.deselectByValue(value);
+		}
+	}
 
-		return excelMap;
+	// Sendkeys to text box
+	public static void enterTxtBox(By by, String value)
+	{
+		DriverManager.getDriver().findElement(by).sendKeys(value);
 	}
 
 

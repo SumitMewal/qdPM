@@ -36,7 +36,7 @@ public final class ExcelReader {
 		}
 		int rowCount = sheet.getLastRowNum();
 		int lastCellCount = sheet.getRow(0).getLastCellNum();
-		for (int i = 1 ; i<rowCount;i++)
+		for (int i = 1 ; i<=rowCount;i++)
 		{
 			String key = sheet.getRow(i).getCell(0).getStringCellValue().toString();
 			for (int j = 1; j<lastCellCount;j++)
@@ -45,9 +45,11 @@ public final class ExcelReader {
 				excelMap.put(key, value);
 			}
 		}
-		String cellValue = null;
+		String cellValue = " ";
 		for(Object key: excelMap.keySet())
 		{
+			System.out.println(excelMap.get(key));
+			
 			if (key.toString().equalsIgnoreCase(columnkey))
 			{
 				cellValue =  excelMap.get(key).toString();

@@ -62,12 +62,13 @@ public final class UtilityClass {
 	{
 		WebElement element = DriverManager.getDriver().findElement(by);
 		Select select = new Select(element);
-		optionsList = select.getAllSelectedOptions();
+		optionsList = select.getOptions();
 		for (WebElement option : optionsList)
 		{
+			System.out.println(option.getText());
 			if(option.getText().equalsIgnoreCase(value))
 			{
-				select.selectByVisibleText(value);
+				select.selectByVisibleText(option.getText());
 			}
 		}
 	}
@@ -78,7 +79,22 @@ public final class UtilityClass {
 		DriverManager.getDriver().findElement(by).sendKeys(value);
 	}
 
-
+	//Check checkbox is selected or not comparing with excel data
+	
+public static void selectChkBox(By by, String cellValue) throws IOException
+{
+	WebElement chkBox = DriverManager.getDriver().findElement(by);
+	String bool = ExcelReader.getExcelData(cellValue);
+	System.out.println(bool);
+	if(bool.equalsIgnoreCase("yes") && chkBox.isSelected()==false)
+	{
+		chkBox.click();
+	}
+	else if(bool.equalsIgnoreCase("no") && chkBox.isSelected()==true)
+	{
+		chkBox.click();
+	}
+}
 
 
 }

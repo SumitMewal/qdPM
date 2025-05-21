@@ -23,10 +23,10 @@ public final class LoginPage {
 		DriverManager.getDriver().findElement(Passtxtbox).sendKeys(password);
 		return this;
 	}
-	public UserPage clickLogin()
+	public AddUserPage clickLogin()
 	{
 		DriverManager.getDriver().findElement(lobinBtn).click();
-		return new UserPage();
+		return new AddUserPage();
 	}
 	public ForgotPasswordPage clickForgotPassword()
 	{

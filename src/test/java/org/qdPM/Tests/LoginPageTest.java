@@ -3,7 +3,7 @@ import java.io.IOException;
 
 import org.qdPM.base.AbstractClass;
 import org.qdPM.pageobject.LoginPage;
-import org.qdPM.pageobject.UserPage;
+import org.qdPM.pageobject.AddUserPage;
 import org.testng.annotations.Test;
 
 public final class LoginPageTest extends AbstractClass  {
@@ -12,19 +12,27 @@ public final class LoginPageTest extends AbstractClass  {
 	{
 
 	}
-	UserPage uP;
+	AddUserPage aUP;
 	LoginPage lP = new LoginPage();
-	@Test (priority = 1)
+	@Test (enabled = false)
 	public void validateUserName ()
 	{
 		lP.enterUserEmail("sumitsmewal@gmail.com").enterUserPassword("sumita").clickLogin();
 	}
-	@Test (priority = 2)
-	public void createClientUser() throws IOException
+	
+	@Test 
+	public void createUser() throws IOException, InterruptedException
 	{
-		uP = lP.enterUserEmail("sumitsmewal@gmail.com").enterUserPassword("sumita").clickLogin();
+		aUP = lP.enterUserEmail("sumitsmewal@gmail.com").enterUserPassword("sumita").clickLogin();
 		clickOnSubmenu("Users","Add User");
-		uP.selectGroup().enterName().enterPass().enterEmail().enterPhone().selectLanguage();
+		aUP.chkActiveChkBox().enterName().enterPass().enterEmail().enterPhone().selectLanguage().selectGroup().chkUserNotify().saveUserDetails();
+	}
+	@Test
+	public void searchUser()
+	{
+		aUP = lP.enterUserEmail("sumitsmewal@gmail.com").enterUserPassword("sumita").clickLogin();
+		clickOnSubmenu("Users","View All");
+		
 	}
 
 

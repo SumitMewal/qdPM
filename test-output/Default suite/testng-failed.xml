@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.qdPM.tests.TestClass">
+      <class name="org.qdPM.tests.LoginPageTest">
         <methods>
-          <include name="test2"/>
+          <include name="createClientUser"/>
           <include name="initDriver"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- org.qdPM.tests.TestClass -->
+      </class> <!-- org.qdPM.tests.LoginPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

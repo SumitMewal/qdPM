@@ -25,11 +25,11 @@ public final class ExcelReader {
 		sheet = workbook.getSheet("Client Data");
 		fis.close();
 	}
-	
+
 	private static HashMap<Object, Object> excelMap ;
-	public static HashMap<Object, Object> getCellValue() throws IOException
+	public static String getExcelData(String columnkey) throws IOException
 	{
-		excelMap =  new HashMap();
+		excelMap =  new HashMap<Object, Object>();
 		if (sheet == null)
 		{
 			loadExcelFile();
@@ -45,7 +45,16 @@ public final class ExcelReader {
 				excelMap.put(key, value);
 			}
 		}
-		return excelMap;
+		String cellValue = null;
+		for(Object key: excelMap.keySet())
+		{
+			if (key.toString().equalsIgnoreCase(columnkey))
+			{
+				cellValue =  excelMap.get(key).toString();
+			}
+		}
+		return cellValue;
+
 	}
 
 

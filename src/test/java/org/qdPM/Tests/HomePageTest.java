@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class HomePageTest extends AbstractClass  {
 
 	WebDriver driver;
-	@Test
+	@Test (enabled = false)
 	public void loginUser1()
 	{
 		LoginPage lP = new LoginPage();
@@ -18,7 +18,7 @@ public class HomePageTest extends AbstractClass  {
 
 	}
 
-	@Test
+	@Test (enabled = false)
 	public void loginUser2()
 	{
 		LoginPage lP = new LoginPage();

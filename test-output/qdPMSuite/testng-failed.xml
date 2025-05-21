@@ -3,19 +3,11 @@
 <suite name="Failed suite [qdPMSuite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" parallel="methods" name="qdPMTest(failed)">
     <classes>
-      <class name="org.qdPM.tests.HomePageTest">
-        <methods>
-          <include name="initDriver"/>
-          <include name="tearDown"/>
-          <include name="loginUser1"/>
-          <include name="loginUser2"/>
-        </methods>
-      </class> <!-- org.qdPM.tests.HomePageTest -->
       <class name="org.qdPM.tests.LoginPageTest">
         <methods>
+          <include name="createClientUser"/>
           <include name="tearDown"/>
           <include name="initDriver"/>
-          <include name="getUserName"/>
         </methods>
       </class> <!-- org.qdPM.tests.LoginPageTest -->
     </classes>

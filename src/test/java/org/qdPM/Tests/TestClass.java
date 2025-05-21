@@ -15,14 +15,7 @@ public final class TestClass extends AbstractClass {
 	@Test (enabled = true)
 	public void test1() throws IOException
 	{
-		HashMap<Object, Object> map = new HashMap<Object, Object>();
-		map  = ExcelReader.getCellValue();
-		for (Object key : map.keySet())
-		{
-			System.out.println(key.toString()+ " Value "+map.get(key).toString());
-		}
-
-
+		System.out.println(ExcelReader.getExcelData("Full Name"));
 	}
 	@Test
 	public void test2()

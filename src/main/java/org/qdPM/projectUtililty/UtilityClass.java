@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import org.qdPM.driver.DriverManager;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
 import org.openqa.selenium.By;
@@ -54,19 +55,20 @@ public final class UtilityClass {
 		}
 		return MAP.get(key);
 	}
-
 	// Select dropdown handling
+
+	private static List<WebElement> optionsList ;
 	public static void selectDropDown(By by, String value)
 	{
 		WebElement element = DriverManager.getDriver().findElement(by);
 		Select select = new Select(element);
-		String defaultSelection = select.getFirstSelectedOption().toString();
-		if(defaultSelection.equalsIgnoreCase(value))
+		optionsList = select.getAllSelectedOptions();
+		for (WebElement option : optionsList)
 		{
-			select.selectByValue(value);
-		}
-		else {
-			select.deselectByValue(value);
+			if(option.getText().equalsIgnoreCase(value))
+			{
+				select.selectByVisibleText(value);
+			}
 		}
 	}
 

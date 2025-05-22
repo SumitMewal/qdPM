@@ -48,8 +48,7 @@ public final class ExcelReader {
 		String cellValue = " ";
 		for(Object key: excelMap.keySet())
 		{
-			System.out.println(excelMap.get(key));
-			
+			//System.out.println(excelMap.get(key));
 			if (key.toString().equalsIgnoreCase(columnkey))
 			{
 				cellValue =  excelMap.get(key).toString();

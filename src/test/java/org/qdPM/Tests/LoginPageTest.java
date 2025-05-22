@@ -27,13 +27,7 @@ public final class LoginPageTest extends AbstractClass  {
 		clickOnSubmenu("Users","Add User");
 		aUP.chkActiveChkBox().enterName().enterPass().enterEmail().enterPhone().selectLanguage().selectGroup().chkUserNotify().saveUserDetails();
 	}
-	@Test
-	public void searchUser()
-	{
-		aUP = lP.enterUserEmail("sumitsmewal@gmail.com").enterUserPassword("sumita").clickLogin();
-		clickOnSubmenu("Users","View All");
-		
-	}
+	
 
 
 

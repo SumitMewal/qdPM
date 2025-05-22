@@ -74,27 +74,33 @@ public final class UtilityClass {
 	}
 
 	// Sendkeys to text box
-	public static void enterTxtBox(By by, String value)
+	public static void enterTxtBox(By by, String searchTxt)
 	{
-		DriverManager.getDriver().findElement(by).sendKeys(value);
+		DriverManager.getDriver().findElement(by).sendKeys(searchTxt);
 	}
 
 	//Check checkbox is selected or not comparing with excel data
+	public static void selectChkBox(By by, String cellValue) throws IOException
+	{
+		WebElement chkBox = DriverManager.getDriver().findElement(by);
+		String bool = ExcelReader.getExcelData(cellValue);
+		System.out.println(bool);
+		if(bool.equalsIgnoreCase("yes") && chkBox.isSelected()==false)
+		{
+			chkBox.click();
+		}
+		else if(bool.equalsIgnoreCase("no") && chkBox.isSelected()==true)
+		{
+			chkBox.click();
+		}
+	}
+
+	//Read data from email 
+	public void readEmail(String email)
+	{
+		DriverManager.getDriver().get("https://www.mailinator.com/");
+	}
 	
-public static void selectChkBox(By by, String cellValue) throws IOException
-{
-	WebElement chkBox = DriverManager.getDriver().findElement(by);
-	String bool = ExcelReader.getExcelData(cellValue);
-	System.out.println(bool);
-	if(bool.equalsIgnoreCase("yes") && chkBox.isSelected()==false)
-	{
-		chkBox.click();
-	}
-	else if(bool.equalsIgnoreCase("no") && chkBox.isSelected()==true)
-	{
-		chkBox.click();
-	}
-}
 
 
 }

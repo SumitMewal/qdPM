@@ -1,11 +1,7 @@
 package org.qdPM.pageobject;
 
-import java.awt.Checkbox;
 import java.io.IOException;
-import java.util.List;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.qdPM.driver.DriverManager;
 import org.qdPM.projectutililty.ExcelReader;
 import org.qdPM.projectutililty.UtilityClass;

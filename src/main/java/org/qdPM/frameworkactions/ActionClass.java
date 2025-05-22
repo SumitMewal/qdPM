@@ -11,10 +11,10 @@ public final class ActionClass {
 		
 	}
 	
-	static Actions actionObj = new Actions(DriverManager.getDriver());;
+	static Actions actionObj = new Actions(DriverManager.getDriver());
 	public static void hoverToElement(By by)
 	{
-		actionObj.moveToElement(DriverManager.getDriver().findElement(by));
+		actionObj.moveToElement(DriverManager.getDriver().findElement(by)).build().perform();
 	
 	}
 	

@@ -17,6 +17,7 @@ public final class AddUserPage  {
 	private static By photoTxtBox = By.id("users_photo");
 	private static By languageDrpDwn = By.id("users_culture");
 	private static By SubmitBtn = By.id("submit_button");
+	
 	private static By closeBtn = By.xpath("//button[contains(text(),'Close')]");
 	private static By userNotify = By.id("users_notify");
 
@@ -32,11 +33,12 @@ public final class AddUserPage  {
 		return this;
 	}
 
-	public AddUserPage selectGroup()
+	public AddUserPage selectGroup() throws IOException
 	{
-		UtilityClass.selectDropDown(groupDrpDwn, "Developer");
+		UtilityClass.selectDropDown(groupDrpDwn, ExcelReader.getExcelData("Group"));
 		return this;
 	}
+	
 	public AddUserPage enterName() throws IOException
 	{
 		UtilityClass.enterTxtBox(nameTxtBox, ExcelReader.getExcelData("Full Name"));
@@ -52,18 +54,18 @@ public final class AddUserPage  {
 		UtilityClass.enterTxtBox(emailTxtBox, ExcelReader.getExcelData("Email"));
 		return this;
 	}
-	public AddUserPage enterPhone() throws IOException
+	public AddUserPage enterPhone(String phone) throws IOException
 	{
-		UtilityClass.enterTxtBox(phoneTxtBox, ExcelReader.getExcelData("Phone"));
+		UtilityClass.enterTxtBox(phoneTxtBox, phone);
 		return this;
 	}
 	public void uploadPhoto()
 	{
 		// Need to find the way to upload photo from excel sheet.....
 	}
-	public AddUserPage selectLanguage()
+	public AddUserPage selectLanguage() throws IOException
 	{
-		UtilityClass.selectDropDown(languageDrpDwn, "Hindi");
+		UtilityClass.selectDropDown(languageDrpDwn, ExcelReader.getExcelData("Language"));
 		return this;
 	}
 	public void saveUserDetails()

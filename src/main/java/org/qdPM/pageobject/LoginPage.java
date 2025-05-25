@@ -10,6 +10,7 @@ public final class LoginPage {
 	private final By Passtxtbox = By.xpath("//input[@type='password']");
 	private final By lobinBtn = By.xpath("//button[contains(text(),'Login')]");
 	private final By forgotPassLinkTxt = By.linkText("Password forgotten?");
+	private final By userTitle = By.xpath("//span[@class='username']");
 
 	// Methods for implementation
 	public LoginPage enterUserEmail(String email)
@@ -33,5 +34,9 @@ public final class LoginPage {
 		DriverManager.getDriver().findElement(forgotPassLinkTxt).click();
 		return new ForgotPasswordPage();
 	}
+	public String getUserTitle()
+	{
+		return DriverManager.getDriver().findElement(userTitle).getText();
 
+	}
 }

@@ -55,8 +55,8 @@ public final class UtilityClass {
 		}
 		return MAP.get(key);
 	}
-	// Select dropdown handling
 
+	// Select dropdown handling
 	private static List<WebElement> optionsList ;
 	public static void selectDropDown(By by, String value)
 	{
@@ -65,7 +65,6 @@ public final class UtilityClass {
 		optionsList = select.getOptions();
 		for (WebElement option : optionsList)
 		{
-			System.out.println(option.getText());
 			if(option.getText().equalsIgnoreCase(value))
 			{
 				select.selectByVisibleText(option.getText());
@@ -74,17 +73,17 @@ public final class UtilityClass {
 	}
 
 	// Sendkeys to text box
-	public static void enterTxtBox(By by, String searchTxt)
+	public static void enterTxtBox(By by, String enterTxt)
 	{
-		DriverManager.getDriver().findElement(by).sendKeys(searchTxt);
+		DriverManager.getDriver().findElement(by).clear();
+		DriverManager.getDriver().findElement(by).sendKeys(enterTxt);
 	}
 
-	//Check checkbox is selected or not comparing with excel data
+	// Check checkbox is selected or not comparing with excel data
 	public static void selectChkBox(By by, String cellValue) throws IOException
 	{
 		WebElement chkBox = DriverManager.getDriver().findElement(by);
 		String bool = ExcelReader.getExcelData(cellValue);
-		System.out.println(bool);
 		if(bool.equalsIgnoreCase("yes") && chkBox.isSelected()==false)
 		{
 			chkBox.click();
@@ -100,7 +99,4 @@ public final class UtilityClass {
 	{
 		DriverManager.getDriver().get("https://www.mailinator.com/");
 	}
-	
-
-
 }

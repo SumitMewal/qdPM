@@ -12,11 +12,12 @@ import org.testng.annotations.Test;
 
 public final class TestClass {
 
-	@Test (enabled = true)
+	@Test (enabled = false)
 	public void test1() throws IOException
 	{
 		System.out.println(ExcelReader.getExcelData("Notify"));
 	}
+	
 	@Test(enabled = false)
 	public void test2()
 	{

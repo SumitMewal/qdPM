@@ -1,7 +1,7 @@
 package org.qdPM.pageobject;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.qdPM.frameworkactions.ActionClass;
@@ -20,7 +20,7 @@ public final class UsersPage {
 	private static By tableRow = By.xpath("//tbody[@role='alert']/tr");
 	private static By reset = By.xpath("//a[text()='Reset']");
 	private static By actionButton = By.xpath("//tbody[@role='alert']/tr/td[6]/parent::tr/td/div[@class='checker']");
-	
+
 	public UsersPage Hover()
 	{
 		ActionClass.hoverToElement(searchIcon);
@@ -51,26 +51,40 @@ public final class UsersPage {
 		return 0;
 	}
 
-	public String getColumnValue(String headerName)
+	private ArrayList<String> arrListColumn ;
+	public  ArrayList<String> getColumnsValue(String headerName)
 	{
+		arrListColumn= new ArrayList<String>();
 		int columnIndex = getColumnIndex(headerName);
-		System.out.println("column index"+columnIndex);
-		By tableColumn = By.xpath("//tbody[@role='alert']/tr/td['"+columnIndex+"']/a");
-		String value =  DriverManager.getDriver().findElement(tableColumn).getText();
-		System.out.println("column value "+ value);
-		return value;
+		List<WebElement> rowList =	DriverManager.getDriver().findElements(tableRow);
+		for (int r = 1;r<=rowList.size();r++)
+		{		
+			By tableColumn = By.xpath("//tbody[@role='alert']/tr["+r+"]/td["+columnIndex+"]/a");
+			String columnValue =  DriverManager.getDriver().findElement(tableColumn).getText();
+			arrListColumn.add(columnValue);
+		}
+		return arrListColumn;
 	}
 
 	public void resetDataTable()
 	{
 		DriverManager.getDriver().findElement(reset).click();
 	}
-	
-	public void editRow()
+
+	public void editRow(int rowCount)
 	{
-		//DriverManager.getDriver().findElement();
+		int columnIndex = getColumnIndex("Action");
+		DriverManager.getDriver().findElement
+		(By.xpath("//tbody[@role='alert']/tr["+rowCount+"]/td["+columnIndex+"]/a/i[contains(@class,'fa-edit')]")).click();
 	}
-	
+
+	public void deleteRow (int rowCount)
+	{
+		int columnIndex = getColumnIndex("Action");
+		DriverManager.getDriver().findElement
+		(By.xpath("//tbody[@role='alert']/tr["+rowCount+"]/td["+columnIndex+"]/a/i[contains(@class,'fa-trash-o')]")).click();
+	}
+
 }
 
 

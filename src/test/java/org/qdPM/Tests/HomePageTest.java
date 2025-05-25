@@ -9,7 +9,11 @@ import org.testng.annotations.Test;
 
 public class HomePageTest extends AbstractClass  {
 
-	WebDriver driver;
+	private HomePageTest()
+	{
+		
+	}
+	
 	@Test (enabled = false)
 	public void loginUser1()
 	{

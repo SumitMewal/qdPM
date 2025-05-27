@@ -31,6 +31,7 @@ public final class LoginPageTest extends AbstractClass  {
 		aUP = lP.enterUserEmail("sumitsmewal@gmail.com").enterUserPassword("sumita").clickLogin();
 		clickOnSubmenu("Users","Add User");
 		aUP.chkActiveChkBox().enterName().enterPass().enterEmail().enterPhone(ExcelReader.getExcelData("Phone")).selectLanguage().selectGroup().chkUserNotify().saveUserDetails();
+		Thread.sleep(5000);
 	}
 }
 

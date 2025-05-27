@@ -74,8 +74,8 @@ public final class UsersPage {
 	public void editRow(int rowCount)
 	{
 		int columnIndex = getColumnIndex("Action");
-		DriverManager.getDriver().findElement
-		(By.xpath("//tbody[@role='alert']/tr["+rowCount+"]/td["+columnIndex+"]/a/i[contains(@class,'fa-edit')]")).click();
+		DriverManager.getDriver().findElement(By.xpath("//tbody[@role='alert']/tr["+rowCount+"]/td["+columnIndex+"]/a/i[contains(@class,'fa-edit')]")).click();
+
 	}
 
 	public void deleteRow (int rowCount)
@@ -85,6 +85,12 @@ public final class UsersPage {
 		(By.xpath("//tbody[@role='alert']/tr["+rowCount+"]/td["+columnIndex+"]/a/i[contains(@class,'fa-trash-o')]")).click();
 	}
 
+	public String getCellValue(String Header,int rowIndex)
+	{
+		int columnIndex = getColumnIndex(Header);
+		String value = org.qdPM.driver.DriverManager.getDriver().findElement(By.xpath("//tbody[@role='alert']/tr["+rowIndex+"]/td["+columnIndex+"]")).getText();
+		return value;
+	}
 }
 
 

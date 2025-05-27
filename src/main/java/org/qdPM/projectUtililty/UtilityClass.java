@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -99,4 +101,22 @@ public final class UtilityClass {
 	{
 		DriverManager.getDriver().get("https://www.mailinator.com/");
 	}
+
+	public static void acceptDialogBox(String choice)
+	{
+		if (choice.equalsIgnoreCase("yes"))
+		{
+			Alert alert = DriverManager.getDriver().switchTo().alert();
+			alert.accept();
+		}
+		else
+		{
+			Alert alert = DriverManager.getDriver().switchTo().alert();
+			alert.dismiss();
+		}
+
+	}
+
+
+
 }

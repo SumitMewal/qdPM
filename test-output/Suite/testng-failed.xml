@@ -5,10 +5,9 @@
     <classes>
       <class name="org.qdPM.tests.UsersPageTest">
         <methods>
+          <include name="searchAndValidateUser"/>
           <include name="initDriver"/>
           <include name="tearDown"/>
-          <include name="updateUserDetails"/>
-          <include name="deleteUser"/>
         </methods>
       </class> <!-- org.qdPM.tests.UsersPageTest -->
     </classes>

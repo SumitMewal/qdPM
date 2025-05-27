@@ -7,7 +7,7 @@
         <methods>
           <include name="tearDown"/>
           <include name="initDriver"/>
-          <include name="updateUserDetails"/>
+          <include name="deleteUser"/>
         </methods>
       </class> <!-- org.qdPM.tests.UsersPageTest -->
     </classes>

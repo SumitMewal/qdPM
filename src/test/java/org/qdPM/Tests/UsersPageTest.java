@@ -1,12 +1,16 @@
 package org.qdPM.tests;
 
 import java.io.IOException;
+import java.sql.DriverManager;
 import java.util.ArrayList;
+
+import org.openqa.selenium.By;
 import org.qdPM.base.AbstractClass;
 import org.qdPM.pageobject.AddUserPage;
 import org.qdPM.pageobject.LoginPage;
 import org.qdPM.pageobject.UsersPage;
 import org.qdPM.projectutililty.ExcelReader;
+import org.qdPM.projectutililty.UtilityClass;
 import org.testng.annotations.Test;
 
 public final class UsersPageTest extends AbstractClass {
@@ -19,6 +23,7 @@ public final class UsersPageTest extends AbstractClass {
 	UsersPage uSP = new UsersPage();
 	AddUserPage aUP = new AddUserPage();
 	ArrayList<String> arrList;
+	ArrayList<String> arrListPhone;
 
 	@Test(priority = 3)
 	public void searchAndValidateUser() throws IOException, InterruptedException
@@ -45,37 +50,28 @@ public final class UsersPageTest extends AbstractClass {
 	{
 		// Email is not going from the local server!!
 	}
+
 	@Test(priority = 4)
 	public void updateUserDetails() throws IOException, InterruptedException
-	{	
-		arrList = new ArrayList<String>();
-		String fullName = ExcelReader.getExcelData("Full Name");
-		String beforePhone = ExcelReader.getExcelData("Phone");
-		String newPhone = ExcelReader.getExcelData("Updated Phone");
-		lP.enterUserEmail("sumitsmewal@gmail.com").enterUserPassword("sumita").clickLogin();
-		clickOnSubmenu("Users","View All");
-		arrList = 	uSP.getColumnsValue("Name");
-		for (int i=0;i<arrList.size();i++)
+	{	String updatedPhone;
+	String phone;
+	arrList = new ArrayList<String>();
+	String fullName = ExcelReader.getExcelData("Full Name");
+	lP.enterUserEmail("sumitsmewal@gmail.com").enterUserPassword("sumita").clickLogin();
+	clickOnSubmenu("Users","View All");
+	arrList = 	uSP.getColumnsValue("Name");
+	for (int i=0;i<arrList.size();i++)
+	{
+		if(arrList.get(i).equalsIgnoreCase(fullName))
 		{
-			if(arrList.get(i).equalsIgnoreCase(fullName))
-			{
-				System.out.println(arrList.get(i));
-				uSP.editRow(i);
-				Thread.sleep(5000);
-				aUP.enterPhone(ExcelReader.getExcelData("Updated Phone")).saveUserDetails();
-			}
+			phone = uSP.getCellValue("Phone", i+1);
+			uSP.editRow(i+1);
+			aUP.enterPhone(ExcelReader.getExcelData("Updated Phone")).saveUserDetails();
+			Thread.sleep(5000);
+			updatedPhone = uSP.getCellValue("Phone", i+1);
+			System.out.println("Phone "+phone+" is updated to "+updatedPhone );
 		}
-		// To validate updated data on the data table 
-		for (int i=0;i<arrList.size();i++)
-		{
-			if(arrList.get(i).equalsIgnoreCase(fullName))
-			{				
-				if(uSP.getColumnsValue("Phone").getFirst().toString().equalsIgnoreCase(newPhone))
-				{
-					System.out.println("Data updated from: "+beforePhone+" to "+ newPhone);
-				}
-			}
-		}
+	}
 	}
 
 	@Test(priority = 5)
@@ -89,17 +85,10 @@ public final class UsersPageTest extends AbstractClass {
 		{
 			if(arrList.get(i).equalsIgnoreCase(fullName))
 			{				
-				uSP.deleteRow(i);
-				//aUP.selectGroup("Manager").saveUserDetails();
-			}
-		}
-		// Validate the deleted user on the data table
-
-		for (int i=0;i<arrList.size();i++)
-		{
-			if(!arrList.get(i).equalsIgnoreCase(fullName))
-			{				
-				System.out.println(fullName+ "not found !! Deleted from the system !!");
+				uSP.deleteRow(i+1);
+				UtilityClass.acceptDialogBox("yes");
+				// Update with the assertion
+				uSP.getCellValue("Name", i);
 			}
 		}
 	}

@@ -5,6 +5,7 @@ import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.qdPM.driver.DriverManager;
 import org.qdPM.pageobject.SidebarMenuPage;
 import org.qdPM.projectutililty.UtilityClass;
@@ -25,7 +26,7 @@ public class AbstractClass {
 	public static void initDriver() throws IOException 
 	{
 		DriverManager.setDriver();
-		DriverManager.getDriver().get(UtilityClass.getValue("url"));
+		DriverManager.getDriver().get(UtilityClass.getPropertyValue("url"));
 		DriverManager.getDriver().manage().timeouts().implicitlyWait(10000,TimeUnit.SECONDS);
 		DriverManager.getDriver().manage().window().maximize();
 	}

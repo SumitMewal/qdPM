@@ -3,6 +3,7 @@ import java.io.IOException;
 
 import org.qdPM.base.AbstractClass;
 import org.qdPM.pageobject.LoginPage;
+import org.qdPM.pageobject.UsersPage;
 import org.qdPM.projectutililty.ExcelReader;
 import org.qdPM.projectutililty.UtilityClass;
 import org.qdPM.pageobject.AddUserPage;
@@ -14,7 +15,7 @@ public final class LoginPageTest extends AbstractClass  {
 	{
 
 	}
-	
+
 	AddUserPage aUP;
 	LoginPage lP = new LoginPage();
 	@Test (enabled = true, priority = 1)
@@ -30,8 +31,9 @@ public final class LoginPageTest extends AbstractClass  {
 	{
 		aUP = lP.enterUserEmail("sumitsmewal@gmail.com").enterUserPassword("sumita").clickLogin();
 		clickOnSubmenu("Users","Add User");
-		aUP.chkActiveChkBox().enterName().enterPass().enterEmail().enterPhone(ExcelReader.getExcelData("Phone")).selectLanguage().selectGroup().chkUserNotify().saveUserDetails();
+		UsersPage uSP=	aUP.chkActiveChkBox().enterName().enterPass().enterEmail().enterPhone(ExcelReader.getExcelData("Phone")).selectLanguage().selectGroup().chkUserNotify().saveUserDetails();
 		Thread.sleep(5000);
+		System.out.println("Congratulations !! User Created..");
 	}
 }
 

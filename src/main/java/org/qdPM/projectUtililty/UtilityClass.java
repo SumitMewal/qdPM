@@ -49,7 +49,7 @@ public final class UtilityClass {
 	}
 
 	// getting property values using Hashmap
-	public static String getValue(String key) throws IOException
+	public static String getPropertyValue(String key) throws IOException
 	{
 		if(Objects.isNull(key) || Objects.isNull(MAP.get(key)))
 		{

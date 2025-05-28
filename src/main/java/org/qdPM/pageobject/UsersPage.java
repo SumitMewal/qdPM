@@ -19,7 +19,6 @@ public final class UsersPage {
 	private static By tableHeader = By.xpath("//th[@role='columnheader']/div");
 	private static By tableRow = By.xpath("//tbody[@role='alert']/tr");
 	private static By reset = By.xpath("//a[text()='Reset']");
-	private static By actionButton = By.xpath("//tbody[@role='alert']/tr/td[6]/parent::tr/td/div[@class='checker']");
 
 	public UsersPage Hover()
 	{

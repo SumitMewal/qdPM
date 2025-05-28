@@ -88,6 +88,7 @@ public final class UsersPageTest extends AbstractClass {
 				uSP.deleteRow(i+1);
 				UtilityClass.acceptDialogBox("yes");
 				// Update with the assertion
+				System.out.println("User deleted successfully !!");
 				uSP.getCellValue("Name", i);
 			}
 		}

@@ -68,9 +68,10 @@ public final class AddUserPage  {
 		UtilityClass.selectDropDown(languageDrpDwn, ExcelReader.getExcelData("Language"));
 		return this;
 	}
-	public void saveUserDetails()
+	public UsersPage saveUserDetails()
 	{
 		DriverManager.getDriver().findElement(SubmitBtn).click();
+		return new UsersPage();
 	}
 	public void resetData()
 	{

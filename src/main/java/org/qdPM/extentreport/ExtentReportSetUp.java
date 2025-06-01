@@ -29,7 +29,7 @@ public final class ExtentReportSetUp {
 		extentReports.attachReporter(sparkReport);
 
 		// Report Configuration		
-		sparkReport.config().setDocumentTitle("qdPM");
+		sparkReport.config().setDocumentTitle("qdPM - Test Report");
 		sparkReport.config().setReportName(System.getProperty("user.name"));
 		sparkReport.config().setTheme(Theme.DARK);
 		

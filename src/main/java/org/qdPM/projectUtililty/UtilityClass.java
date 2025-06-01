@@ -3,6 +3,8 @@ package org.qdPM.projectutililty;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import org.qdPM.base.AbstractClass;
 import org.qdPM.driver.DriverManager;
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +16,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public final class UtilityClass {
+public final class UtilityClass extends AbstractClass{
 
 	private UtilityClass()
 	{

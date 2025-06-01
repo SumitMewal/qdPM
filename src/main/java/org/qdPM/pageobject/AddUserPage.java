@@ -21,7 +21,12 @@ public final class AddUserPage  {
 	private static By closeBtn = By.xpath("//button[contains(text(),'Close')]");
 	private static By userNotify = By.id("users_notify");
 
-
+	public void addUser()
+	{
+		
+		
+	}
+	
 	public AddUserPage chkActiveChkBox() throws IOException
 	{
 		UtilityClass.selectChkBox(activeChkBox, "Active");

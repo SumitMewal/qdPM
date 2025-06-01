@@ -2,17 +2,19 @@ package org.qdPM.base;
 import java.io.IOException;
 import java.sql.Driver;
 import java.sql.Time;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.qdPM.driver.DriverManager;
+import org.qdPM.frameworkactions.ActionBuilderClass;
 import org.qdPM.pageobject.SidebarMenuPage;
 import org.qdPM.projectutililty.UtilityClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public class AbstractClass {
+public class AbstractClass extends ActionBuilderClass {
 
 	// protected used instead of private as it's the parent class for all my test classes
 	protected AbstractClass()
@@ -27,7 +29,7 @@ public class AbstractClass {
 	{
 		DriverManager.setDriver();
 		DriverManager.getDriver().get(UtilityClass.getPropertyValue("url"));
-		DriverManager.getDriver().manage().timeouts().implicitlyWait(10000,TimeUnit.SECONDS);
+		DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10000));
 		DriverManager.getDriver().manage().window().maximize();
 	}
 

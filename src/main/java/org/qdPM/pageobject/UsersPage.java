@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.qdPM.frameworkactions.ActionClass;
-import org.qdPM.projectutililty.UtilityClass;
+import org.qdPM.base.AbstractClass;
 import org.qdPM.driver.DriverManager;
 
-public final class UsersPage {
+public final class UsersPage extends AbstractClass {
 
 	// search_keywords
 	private static By searchIcon = By.id("yui-gen1");
@@ -22,19 +21,19 @@ public final class UsersPage {
 
 	public UsersPage Hover()
 	{
-		ActionClass.hoverToElement(searchIcon);
+		hoverToElement(searchIcon);
 		return this;
 	}
 
 	public UsersPage enterSearchTxt(String searchValue)
 	{
-		UtilityClass.enterTxtBox(searchTxt, searchValue);
+		sendkeys(searchTxt, searchValue);
 		return this;
 	}
 
 	public UsersPage clickSearch()
 	{
-		DriverManager.getDriver().findElement(searhBtn).click();
+		click(searhBtn);
 		return this;
 	}
 
@@ -67,7 +66,7 @@ public final class UsersPage {
 
 	public void resetDataTable()
 	{
-		DriverManager.getDriver().findElement(reset).click();
+		click(reset);
 	}
 
 	public void editRow(int rowCount)

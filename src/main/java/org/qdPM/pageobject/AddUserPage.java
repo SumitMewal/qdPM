@@ -2,11 +2,12 @@ package org.qdPM.pageobject;
 
 import java.io.IOException;
 import org.openqa.selenium.By;
+import org.qdPM.base.AbstractClass;
 import org.qdPM.driver.DriverManager;
 import org.qdPM.projectutililty.ExcelReader;
 import org.qdPM.projectutililty.UtilityClass;
 
-public final class AddUserPage  {
+public final class AddUserPage extends AbstractClass {
 
 	private static By activeChkBox = By.id("users_active");
 	private static By groupDrpDwn = By.id("users_users_group_id");
@@ -17,16 +18,16 @@ public final class AddUserPage  {
 	private static By photoTxtBox = By.id("users_photo");
 	private static By languageDrpDwn = By.id("users_culture");
 	private static By SubmitBtn = By.id("submit_button");
-	
+
 	private static By closeBtn = By.xpath("//button[contains(text(),'Close')]");
 	private static By userNotify = By.id("users_notify");
 
 	public void addUser()
 	{
-		
-		
+
 	}
-	
+
+
 	public AddUserPage chkActiveChkBox() throws IOException
 	{
 		UtilityClass.selectChkBox(activeChkBox, "Active");
@@ -43,25 +44,25 @@ public final class AddUserPage  {
 		UtilityClass.selectDropDown(groupDrpDwn, ExcelReader.getExcelData("Group"));
 		return this;
 	}
-	
+
 	public AddUserPage enterName() throws IOException
 	{
-		UtilityClass.enterTxtBox(nameTxtBox, ExcelReader.getExcelData("Full Name"));
+		sendkeys(nameTxtBox, ExcelReader.getExcelData("Full Name"));
 		return this;
 	}
 	public AddUserPage enterPass() throws IOException
-	{	
-		UtilityClass.enterTxtBox(passTxtBox, ExcelReader.getExcelData("Password"));
+	{
+		sendkeys(passTxtBox, ExcelReader.getExcelData("Password"));
 		return this;
 	}
 	public AddUserPage enterEmail() throws IOException
 	{
-		UtilityClass.enterTxtBox(emailTxtBox, ExcelReader.getExcelData("Email"));
+		sendkeys(emailTxtBox, ExcelReader.getExcelData("Email"));
 		return this;
 	}
 	public AddUserPage enterPhone(String phone) throws IOException
 	{
-		UtilityClass.enterTxtBox(phoneTxtBox, phone);
+		sendkeys(phoneTxtBox, phone);
 		return this;
 	}
 	public void uploadPhoto()
@@ -75,12 +76,12 @@ public final class AddUserPage  {
 	}
 	public UsersPage saveUserDetails()
 	{
-		DriverManager.getDriver().findElement(SubmitBtn).click();
+		click(SubmitBtn);
 		return new UsersPage();
 	}
 	public void resetData()
 	{
-		DriverManager.getDriver().findElement(closeBtn).click();
+		click(closeBtn);
 	}
 
 }
